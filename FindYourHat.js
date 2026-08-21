@@ -135,7 +135,7 @@ play(){
 
 //เรียกใช้งานส่วนต่างๆเพื่อเล่นเกม
 
-const {field, startX, startY} = Game.generateField(10, 10, 0.1); //เรียกใช้ method generateField เพื่อสร้างmap หลุม 20%
+const {field, startX, startY} = Game.generateField(10, 10, 0.1); //เรียกใช้ method generateField เพื่อสร้างmap หลุม 10%
 const playGame = new Game(field, startX, startY);
 playGame.play(); //เรียกใช้ method play
 
