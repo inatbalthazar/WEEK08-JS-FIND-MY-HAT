@@ -1,14 +1,16 @@
+const prompt = require('prompt-sync')({sigint: true}); //เอามาจาก codeacedemy
+
 const hat = "🎩";
-const hole = "🕳️";
-const path = "⬜";
+const hole = "💥";
+const path = "░";
 const character = "🐈";
 
 // class Game ห่อฟังชั่นของเกมไว้
 class Game {
     constructor(field, startX, startY) {
         this.field = field;
-        this.startX = startX;
-        this.startY = startY;
+        this.x = startX;
+        this.y = startY;
     }
 
 
@@ -20,19 +22,19 @@ printField(){
 
 // ทำ method การเดิน
 moveDown(){
-    this.field[this.y],[this.x] = path;
+    this.field[this.y][this.x] = path;
     this.y = this.y + 1;
 }
 moveUp(){
-    this.field[this.y],[this.x] = path;
+    this.field[this.y][this.x] = path;
     this.y = this.y - 1;
 }
 moveLeft(){
-    this.field[this.y],[this.x] = path;
+    this.field[this.y][this.x] = path;
     this.x = this.x - 1;
 }
 moveRight(){
-    this.field[this.y],[this.x] = path;
+    this.field[this.y][this.x] = path;
     this.x = this.x + 1;
 }
 
@@ -46,7 +48,7 @@ play(){
         // input ทิศทางเดิน
         const direction = prompt(
             "Input key to move (W=UP, S=DOWN, A=LEFT D=RIGHT)"
-        ).toUpperCase; //ใส่ฟังชั่นแปลงเป็นตัวพิมพ์ใหญ่
+        ).toUpperCase(); //ใส่ฟังชั่นแปลงเป็นตัวพิมพ์ใหญ่
 
 //เริ่มทำ key ปุ่ม input
     if(direction === "W"){
@@ -79,7 +81,7 @@ play(){
                 break;
             }
 
-            this.field[this.y][this.x] === character; // update ตำแหน่งผู้เล่น
+            this.field[this.y][this.x] = character; // update ตำแหน่งผู้เล่น
         }
     }
 
@@ -91,7 +93,7 @@ play(){
         // สร้างmapที่เป็น path เปล่า
         for (let y = 0; y < height; y++){
             const row = [];
-            for (let x = 0; y < width; x++){
+            for (let x = 0; x < width; x++){
                 row.push(path);
             }
             newField.push(row);
@@ -119,39 +121,24 @@ play(){
         //สุ่มจุดเกิดHat
         let hatSpot = false;
         while(!hatSpot){
-            
+        let randomY = Math.floor(Math.random()*height);
+        let randomX = Math.floor(Math.random()*width);
+
+            if (newField[randomY][randomX] === path){
+                newField[randomY][randomX] = hat;
+                hatSpot = true;
+            }
         }
-
-        
-// field[0][0]
-
+        return { field: newField, startX, startY };
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+//เรียกใช้งานส่วนต่างๆเพื่อเล่นเกม
+
+const {field, startX, startY} = Game.generateField(10, 10, 0.1); //เรียกใช้ method generateField เพื่อสร้างmap หลุม 20%
+const playGame = new Game(field, startX, startY);
+playGame.play(); //เรียกใช้ method play
+
 
 
     // ลอง log แผนที่

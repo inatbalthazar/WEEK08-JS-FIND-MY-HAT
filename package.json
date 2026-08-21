@@ -1,0 +1,24 @@
+{
+  "name": "js-assessment-findyourhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "FindYourHat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inatbalthazar/WEEK08-JS-FIND-MY-HAT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/inatbalthazar/WEEK08-JS-FIND-MY-HAT/issues"
+  },
+  "homepage": "https://github.com/inatbalthazar/WEEK08-JS-FIND-MY-HAT#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
