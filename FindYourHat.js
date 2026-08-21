@@ -16,7 +16,7 @@ class Game {
 
 // method .log แผนที่
 printField(){
-    console.log(); //ล้างหน้าจอ log
+    console.clear(); //ล้างหน้าจอ log
     console.log(this.field.map((row)=>row.join("")).join("\n"));
 }
 
