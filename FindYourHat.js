@@ -86,7 +86,7 @@ play(){
     }
 
 // เขียนการสุ่มแผนที่ Random ได้ทั้ง holes, hat and actor
-// ใช้ static method เพื่อฝึกการใช้งาน จริงๆผมสามารถเขียน function เฉยๆได้
+// ใช้ static method เพื่อฝึกการใช้งาน จริงๆสามารถเขียน function เฉยๆได้
     static generateField(height, width, percentage){
         const newField = [];
 
@@ -114,7 +114,7 @@ play(){
             if (newField[randomY][randomX] === path){
                 newField[randomY][randomX] = hole;
             } else {
-                i--; //ถ้าสุ่มทุบให้ลด i แล้วลูปใหม่
+                i--; //ถ้าสุ่มทับให้ลด i แล้วลูปใหม่
             }
         }
 
