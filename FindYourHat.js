@@ -97,6 +97,30 @@ play(){
             newField.push(row);
         }
 
+        //สุ่มจุดเกิด
+        const startY = Math.floor(Math.random()*height);
+        const startX = Math.floor(Math.random()*width);
+        newField[startY][startX] = character;
+
+        //สุ่มหลุม
+        const holeCount = Math.floor(height*width*percentage);
+        for(let i = 0; i<holeCount; i++){
+        let randomY = Math.floor(Math.random()*height);
+        let randomX = Math.floor(Math.random()*width);
+
+        //เช็คว่าarrayนั้นว่างไหมจะได้ไม่สุ่มทับ
+            if (newField[randomY][randomX] === path){
+                newField[randomY][randomX] = hole;
+            } else {
+                i--; //ถ้าสุ่มทุบให้ลด i แล้วลูปใหม่
+            }
+        }
+
+        //สุ่มจุดเกิดHat
+        let hatSpot = false;
+        while(!hatSpot){
+            
+        }
 
         
 // field[0][0]
@@ -131,13 +155,13 @@ play(){
 
 
     // ลอง log แผนที่
-    const Mymap1 = [
-        [character, path, path],
-    ];
-        const Mymap2 = [
-        [path, hole, path],
-    ];
-        const Mymap3 = [
-        [path, hat, path],
-    ];
-    console.log(`${Mymap1}\n${Mymap2}\n${Mymap3}`);
+    // const Mymap1 = [
+    //     [character, path, path],
+    // ];
+    //     const Mymap2 = [
+    //     [path, hole, path],
+    // ];
+    //     const Mymap3 = [
+    //     [path, hat, path],
+    // ];
+    // console.log(`${Mymap1}\n${Mymap2}\n${Mymap3}`);
