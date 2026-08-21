@@ -86,7 +86,7 @@ play(){
     }
 
 // เขียนการสุ่มแผนที่ Random ได้ทั้ง holes, hat and actor
-// ใช้ static method เพื่อไม่ต้องสร้าง obj อีก
+// ใช้ static method เพื่อฝึกการใช้งาน จริงๆผมสามารถเขียน function เฉยๆได้
     static generateField(height, width, percentage){
         const newField = [];
 
